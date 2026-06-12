@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class IndexSumDifference {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array: ");
+        int size = scanner.nextInt();
+        int[] numbers = new int[size];
+        System.out.println("Enter " + size + " integers:");
+        for (int i = 0; i < size; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+        int sumEvenIndex = 0;
+        int sumOddIndex = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (i % 2 == 0) {
+                // Add value if the index is even (0, 2, 4, ...)
+                sumEvenIndex += numbers[i];
+            } else {
+                // Add value if the index is odd (1, 3, 5, ...)
+                sumOddIndex += numbers[i];
+            }
+        }
+        int result = sumEvenIndex - sumOddIndex;
+        System.out.println("\n--- Results ---");
+        System.out.println("Sum of elements at Even Indices: " + sumEvenIndex);
+        System.out.println("Sum of elements at Odd Indices: " + sumOddIndex);
+        System.out.println("Subtraction Result (Even Sum - Odd Sum): " + result);
+        scanner.close();
+    }
+}
